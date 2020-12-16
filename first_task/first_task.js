@@ -1,0 +1,1 @@
+var m=new Map();var w=process.argv.slice(2);if(w.length>0){let mx=1;for(v of w){let t=v.split('').sort().join();let a=m.get(t);if(a){a.push(v);let l=a.length;mx=l>mx?l:mx;}else{m.set(t,[v]);}}w=m.values();for(v of w){if(v.length==mx){w=v;break;}}console.log(w.join('\n'));}

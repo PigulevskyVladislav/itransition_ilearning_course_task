@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="third_task:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/third_task_jar</output-path>
+    <root id="root">
+      <element id="archive" name="third_task.jar">
+        <element id="module-output" name="third_task" />
+      </element>
+    </root>
+  </artifact>
+</component>
