@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: by.itransition.ilearning.third_task.ThirdTask
-Class-Path: bcprov-jdk15on-167.jar
-
