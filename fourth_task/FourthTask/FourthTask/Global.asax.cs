@@ -6,6 +6,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.Entity;
+using FourthTask.Models;
 
 namespace FourthTask
 {
@@ -13,9 +15,9 @@ namespace FourthTask
     {
         void Application_Start(object sender, EventArgs e)
         {
-            // Код, выполняемый при запуске приложения
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer(new PersonDatabaseInitializer());
         }
     }
 }
