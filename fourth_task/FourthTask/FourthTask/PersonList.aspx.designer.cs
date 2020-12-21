@@ -13,12 +13,12 @@ namespace FourthTask {
     public partial class PersonList {
         
         /// <summary>
-        /// rpt control.
+        /// PersonGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt;
+        protected global::System.Web.UI.WebControls.GridView PersonGridView;
     }
 }
