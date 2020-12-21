@@ -6,6 +6,9 @@
             <hgroup>
                 <h2><%: Page.Title %></h2>
             </hgroup>
+            <asp:Button class="btn btn-primary" ID="BlockUser" runat="server" Text="Block" OnClick="BlockUser_Click" />
+            <asp:Button class="btn btn-primary" ID="UnblockUser" runat="server" Text="Unblock" OnClick="UnblockUser_Click" />
+            <asp:Button class="btn btn-danger" ID="DeleteUser" runat="server" Text="Delete" OnClick="DeleteUser_Click" />
             <asp:GridView ID="PersonGridView" runat="server" GridLines="None" class="table" 
             SelectMethod="GetPersons" AutoGenerateColumns="False" DataKeyNames="PersonID">
             <Columns>
@@ -19,7 +22,12 @@
                          CssClass="gridCB" runat="server"></asp:checkbox>
                     </itemtemplate>
                 </asp:templatefield>
-                <asp:BoundField DataField="PersonID" HeaderText="ID" />
+                <asp:TemplateField>
+                    <HeaderTemplate>ID</HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="PersonIDLabel" runat="server" Text='<%# Eval("PersonID")%>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="PersonName" HeaderText="Name" />
                 <asp:BoundField DataField="Email" HeaderText="Email" />
                 <asp:BoundField DataField="RegisterDate" HeaderText="Register Date" DataFormatString="{0:dd.MM.yyyy}" />
@@ -27,7 +35,7 @@
                 <asp:TemplateField>
                     <HeaderTemplate>Blocked</HeaderTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="BlockedCheckbox" runat="server" Enabled="false" Checked='<%# Eval("Blocked").ToString().ToLower() == "true" %>' />
+                        <asp:CheckBox ID="BlockedCheckbox" runat="server" Enabled="false" Checked='<%# Eval("Blocked").ToString().ToLower().Equals("true")%>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
