@@ -12,15 +12,17 @@ namespace FourthTask
 {
     public partial class PersonList : System.Web.UI.Page
     {
+        private PersonContext db;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.db = new PersonContext();
         }
 
         public IQueryable<Person> GetPersons()
         {
-            var _db = new PersonContext();
-            IQueryable<Person> query = _db.Persons;
+            this.db = new PersonContext();
+            IQueryable<Person> query = this.db.Persons;
             return query;
         }
 
@@ -50,37 +52,53 @@ namespace FourthTask
 
         protected void DeleteUser_Click(object sender, EventArgs e)
         {
-
+            DeleteUserRows();
         }
 
-        private void ChangeStatus(bool Blocked)
+        private void ForEachSelectedRow(Action<GridViewRow> action)
         {
             try
             {
-                var _db = new PersonContext();
                 foreach (GridViewRow row in PersonGridView.Rows)
                 {
                     bool selected = ((CheckBox)row.FindControl("SelectCheckbox")).Checked;
                     if (selected)
                     {
-                        ChangeStatusRow(row, Blocked, _db);
+                        action(row);
                     }
                 }
-            } catch
+            }
+            catch
             {
-
+                //TODO: 
             }
         }
 
-        private void ChangeStatusRow(GridViewRow row, bool Blocked, PersonContext _db)
+        private void DeleteUserRows()
+        {
+            ForEachSelectedRow(row => DeleteUserRow(row));
+            
+        }
+
+        private void ChangeStatus(bool Blocked)
+        {
+            ForEachSelectedRow(row => ChangeStatusRow(row, Blocked));
+        }
+
+        private void DeleteUserRow(GridViewRow row)
+        {
+            int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
+        }
+
+        private void ChangeStatusRow(GridViewRow row, bool Blocked)
         {
             CheckBox checkBox = (CheckBox)row.FindControl("BlockedCheckbox");
             if (checkBox.Checked != Blocked)
             {
                 int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
-                Person person = (from p in _db.Persons where p.PersonID == id select p).FirstOrDefault();
+                Person person = (from p in this.db.Persons where p.PersonID == id select p).FirstOrDefault();
                 person.Blocked = Blocked;
-                _db.SaveChanges();
+                this.db.SaveChanges();
                 checkBox.Checked = Blocked;
             }
         }
