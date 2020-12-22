@@ -50,7 +50,6 @@ D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\rosly
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Antlr3.Runtime.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\AspNet.ScriptManager.bootstrap.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\AspNet.ScriptManager.jQuery.dll
-D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.AspNet.FriendlyUrls.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.ScriptManager.MSAjax.dll
@@ -62,10 +61,8 @@ D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\WebGr
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\System.Web.Optimization.xml
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Newtonsoft.Json.xml
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Antlr3.Runtime.pdb
-D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\ru\System.Web.Optimization.resources.dll
-D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\ru\Microsoft.AspNet.FriendlyUrls.resources.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\obj\Debug\FourthTask.csprojAssemblyReference.cache
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\obj\Debug\FourthTask.csproj.CoreCompileInputs.cache
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\obj\Debug\FourthTask.csproj.CopyComplete
@@ -75,3 +72,6 @@ D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Entit
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\EntityFramework.SqlServer.dll
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\EntityFramework.xml
 D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\EntityFramework.SqlServer.xml
+D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\development\education\itransition\fourth_task\FourthTask\FourthTask\bin\ru\Microsoft.AspNet.FriendlyUrls.resources.dll
