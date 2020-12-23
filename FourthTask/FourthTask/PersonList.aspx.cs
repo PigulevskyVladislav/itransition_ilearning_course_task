@@ -54,6 +54,7 @@ namespace FourthTask
         protected void DeleteUser_Click(object sender, EventArgs e)
         {
             DeleteUserRows();
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
         private void DeleteUserRows()
@@ -80,10 +81,7 @@ namespace FourthTask
                     }
                 }
             }
-            catch
-            {
-                //TODO: 
-            }
+            catch { }
         }
 
         private void DeleteUserRow(GridViewRow row)

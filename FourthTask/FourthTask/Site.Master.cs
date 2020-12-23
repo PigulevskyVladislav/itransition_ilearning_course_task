@@ -13,6 +13,7 @@ namespace FourthTask
         protected void Page_Load(object sender, EventArgs e)
         {
             cmdSignOut.ServerClick += new System.EventHandler(cmdSignOut_ServerClick);
+            cmdSignOut.InnerText = HttpContext.Current.User.Identity.Name + " Logout";
         }
 
         private void cmdSignOut_ServerClick(object sender, System.EventArgs e)

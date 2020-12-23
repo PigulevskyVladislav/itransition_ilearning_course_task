@@ -11,7 +11,7 @@
 
 <form id="LoginForm" class="form-group" runat="server">
     <div class="container" style="text-align: center;">
-        <asp:Login style="width: 400px; margin-left: auto; margin-right:auto;" ID="PersonLogin" runat="server" DestinationPageUrl="~/Default.aspx" TextLayout="TextOnTop" Width="550px">
+        <asp:Login style="width: 400px; margin-left: auto; margin-right:auto;" ID="PersonLogin" runat="server" DestinationPageUrl="~/PersonList.aspx" TextLayout="TextOnTop" Width="550px">
             <TextBoxStyle CssClass="form-control" />
             <LoginButtonStyle CssClass="btn btn-default" />
             <CheckBoxStyle CssClass="form-check" />
