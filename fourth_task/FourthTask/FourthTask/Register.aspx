@@ -18,10 +18,10 @@
             <asp:TextBox ID="EmailTextBox" class="form-control" runat="server"></asp:TextBox>
 
             <label class="h5 pt-5"><b>Password</b></label>
-            <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="PasswordTextBox" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
 
             <label class="h5 pt-5"><b>Repeat Password</b></label>
-            <asp:TextBox ID="RepeatPasswordTextBox" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="RepeatPasswordTextBox" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
 
             <label class="h5 pt-5"><b>Name</b></label>
             <asp:TextBox ID="NameTextBox" class="form-control" runat="server"></asp:TextBox>

@@ -17,7 +17,7 @@ namespace FourthTask
         {
             if (User.Identity.IsAuthenticated)
             {
-                Response.Redirect("~/");
+                Response.Redirect("PersonList.aspx");
             }
             ((Button)PersonLogin.FindControl("LoginButton")).Click += new System.EventHandler(PersonLogin_ServerClick);
         }
