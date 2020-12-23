@@ -43,6 +43,7 @@ namespace FourthTask
         protected void BlockUser_Click(object sender, EventArgs e)
         {
             ChangeStatus(true);
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
         protected void UnblockUser_Click(object sender, EventArgs e)
@@ -53,6 +54,17 @@ namespace FourthTask
         protected void DeleteUser_Click(object sender, EventArgs e)
         {
             DeleteUserRows();
+        }
+
+        private void DeleteUserRows()
+        {
+            ForEachSelectedRow(row => DeleteUserRow(row));
+
+        }
+
+        private void ChangeStatus(bool Blocked)
+        {
+            ForEachSelectedRow(row => ChangeStatusRow(row, Blocked));
         }
 
         private void ForEachSelectedRow(Action<GridViewRow> action)
@@ -74,20 +86,14 @@ namespace FourthTask
             }
         }
 
-        private void DeleteUserRows()
-        {
-            ForEachSelectedRow(row => DeleteUserRow(row));
-            
-        }
-
-        private void ChangeStatus(bool Blocked)
-        {
-            ForEachSelectedRow(row => ChangeStatusRow(row, Blocked));
-        }
-
         private void DeleteUserRow(GridViewRow row)
         {
             int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
+            Person person = new Person() { PersonID = id };
+            db.Persons.Attach(person);
+            db.Persons.Remove(person);
+            db.SaveChanges();
+            PersonGridView.DataBind();
         }
 
         private void ChangeStatusRow(GridViewRow row, bool Blocked)
@@ -98,8 +104,8 @@ namespace FourthTask
                 int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
                 Person person = (from p in this.db.Persons where p.PersonID == id select p).FirstOrDefault();
                 person.Blocked = Blocked;
-                this.db.SaveChanges();
-                checkBox.Checked = Blocked;
+                db.SaveChanges();
+                PersonGridView.DataBind();
             }
         }
     }
