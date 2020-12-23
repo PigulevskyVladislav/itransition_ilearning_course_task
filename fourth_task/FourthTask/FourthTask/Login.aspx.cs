@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Web.Security;
 using System.Data;
 using FourthTask.Models;
 
@@ -25,7 +25,21 @@ namespace FourthTask
         private void PersonLogin_ServerClick(object sender, System.EventArgs e)
         {
             if (ValidateUser(PersonLogin.UserName, PersonLogin.Password))
+            {
+                FormsAuthenticationTicket tkt;
+                string cookiestr;
+                HttpCookie ck;
+                tkt = new FormsAuthenticationTicket(1, PersonLogin.UserName, DateTime.Now,
+                DateTime.Now.AddMinutes(30), PersonLogin.RememberMeSet, "user ticket");
+                cookiestr = FormsAuthentication.Encrypt(tkt);
+                ck = new HttpCookie(FormsAuthentication.FormsCookieName, cookiestr);
+                if (PersonLogin.RememberMeSet)
+                    ck.Expires = tkt.Expiration;
+                ck.Path = FormsAuthentication.FormsCookiePath;
+                Response.Cookies.Add(ck);
+
                 FormsAuthentication.RedirectFromLoginPage(PersonLogin.UserName, PersonLogin.RememberMeSet);
+            }
             else
                 Response.Redirect("Login.aspx", true);
         }
