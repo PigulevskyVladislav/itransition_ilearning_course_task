@@ -22,7 +22,7 @@ namespace FourthTask
         public IQueryable<Person> GetPersons()
         {
             this.db = new PersonContext();
-            IQueryable<Person> query = this.db.Persons;
+            IQueryable<Person> query = this.db.Person;
             return query;
         }
 
@@ -88,8 +88,8 @@ namespace FourthTask
         {
             int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
             Person person = new Person() { PersonID = id };
-            db.Persons.Attach(person);
-            db.Persons.Remove(person);
+            db.Person.Attach(person);
+            db.Person.Remove(person);
             db.SaveChanges();
             PersonGridView.DataBind();
         }
@@ -100,7 +100,7 @@ namespace FourthTask
             if (checkBox.Checked != Blocked)
             {
                 int id = Convert.ToInt32(((Label)row.FindControl("PersonIDLabel")).Text);
-                Person person = (from p in this.db.Persons where p.PersonID == id select p).FirstOrDefault();
+                Person person = (from p in this.db.Person where p.PersonID == id select p).FirstOrDefault();
                 person.Blocked = Blocked;
                 db.SaveChanges();
                 PersonGridView.DataBind();
