@@ -10,7 +10,6 @@ using System.Data.Entity;
 using FourthTask.Models;
 using System.Data.SqlClient;
 using System.Data;
-using Npgsql;
 
 namespace FourthTask
 {
@@ -30,16 +29,17 @@ namespace FourthTask
                 bool blocked = true;
                 try
                 {
-                    NpgsqlConnection conn = new NpgsqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["FourthTask"].ConnectionString);
+                    SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["FourthTask"].ConnectionString);
                     conn.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand("Select \"Blocked\" from persons where \"Email\"=@email", conn);
-                    cmd.Parameters.AddWithValue("@email", email);
+                    SqlCommand cmd = new SqlCommand("Select Blocked from People where Email=@email", conn);
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar, 60);
+                    cmd.Parameters["@email"].Value = email;
                     var result = cmd.ExecuteScalar();
                     blocked = result != null ? (bool)result : true;
                     cmd.Dispose();
                     conn.Dispose();
                 }
-                catch (SqlException ex) { Console.WriteLine(ex.Message); }
+                catch { }
                 if (blocked)
                 {
                     FormsAuthentication.SignOut();

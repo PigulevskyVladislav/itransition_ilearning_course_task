@@ -7,6 +7,6 @@ namespace FourthTask.Models
         public PersonContext() : base("FourthTask")
         {
         }
-        public DbSet<Person> Person { get; set;}
+        public DbSet<Person> Persons { get; set; }
     }
 }

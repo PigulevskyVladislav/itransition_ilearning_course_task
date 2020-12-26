@@ -58,15 +58,18 @@ namespace FourthTask
             }
             try
             {
-                Person user = (new PersonContext()).Person.SingleOrDefault(p => p.Email == email);
-                if (user == null || user.Password != passWord)
+                using (var db = new PersonContext())
                 {
-                    System.Diagnostics.Trace.WriteLine("[ValidateUser] Input validation of passWord failed.");
-                    return false;
+                    Person user = db.Persons.SingleOrDefault(x => x.Email == email);
+                    if (user == null || user.Password != passWord)
+                    {
+                        System.Diagnostics.Trace.WriteLine("[ValidateUser] Input validation of passWord failed.");
+                        return false;
+                    }
+                    user.LastLoginDate = DateTime.Now;
+                    db.SaveChanges();
+                    return true;
                 }
-                user.LastLoginDate = DateTime.Now;
-                (new PersonContext()).SaveChanges();
-                return true;
             }
             catch (SqlException ex)
             {
