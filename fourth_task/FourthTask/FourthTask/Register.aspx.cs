@@ -47,7 +47,7 @@ namespace FourthTask
             {
                 using (var db = new PersonContext())
                 {
-                    Person userCheck = db.Persons.SingleOrDefault(x => x.Email == email);
+                    Person userCheck = db.Person.SingleOrDefault(p => p.Email == email);
                     if (userCheck != null)
                     {
                         System.Diagnostics.Trace.WriteLine("[ValidateUser] User with this email already exists.");
@@ -59,7 +59,7 @@ namespace FourthTask
                     newUser.Email = email;
                     newUser.RegisterDate = newUser.LastLoginDate = DateTime.Now;
                     newUser.Blocked = false;
-                    db.Persons.Add(newUser);
+                    db.Person.Add(newUser);
                     db.SaveChanges();
                     return true;
                 }
@@ -67,6 +67,7 @@ namespace FourthTask
             catch (SqlException ex)
             {
                 System.Diagnostics.Trace.WriteLine("[ValidateUser] Exception " + ex.Message);
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
