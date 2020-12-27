@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="FourthTask-Web.config Connection String" description="FourthTask Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:vladdatabase.database.windows.net,1433;Initial Catalog=fourth_task_db;Persist Security Info=False;User ID=FourthTaskUser;Password=mL:%@fY88),[u(-F;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\development\\education\\itransition\\fourth_task\\FourthTask\\FourthTask\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='FourthTask']/@connectionString" />
+  </parameter>
+</parameters>

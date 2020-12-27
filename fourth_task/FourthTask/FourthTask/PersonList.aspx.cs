@@ -60,7 +60,8 @@ namespace FourthTask
         private void DeleteUserRows()
         {
             ForEachSelectedRow(row => DeleteUserRow(row));
-
+            db.SaveChanges();
+            PersonGridView.DataBind();
         }
 
         private void ChangeStatus(bool Blocked)
@@ -90,8 +91,6 @@ namespace FourthTask
             Person person = new Person() { PersonID = id };
             db.Persons.Attach(person);
             db.Persons.Remove(person);
-            db.SaveChanges();
-            PersonGridView.DataBind();
         }
 
         private void ChangeStatusRow(GridViewRow row, bool Blocked)

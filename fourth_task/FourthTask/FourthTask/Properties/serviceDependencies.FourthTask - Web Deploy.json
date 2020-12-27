@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/vladdatabase/databases/fourth_task_db",
+      "type": "mssql.azure",
+      "connectionId": "FourthTask",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

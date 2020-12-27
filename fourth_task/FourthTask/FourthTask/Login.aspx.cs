@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Data;
 using FourthTask.Models;
 
 namespace FourthTask
@@ -38,6 +35,7 @@ namespace FourthTask
                 ck.Path = FormsAuthentication.FormsCookiePath;
                 Response.Cookies.Add(ck);
 
+                
                 FormsAuthentication.RedirectFromLoginPage(PersonLogin.UserName, PersonLogin.RememberMeSet);
             }
             else
