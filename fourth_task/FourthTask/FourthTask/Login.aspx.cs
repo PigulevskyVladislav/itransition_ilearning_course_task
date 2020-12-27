@@ -38,15 +38,7 @@ namespace FourthTask
                 ck.Path = FormsAuthentication.FormsCookiePath;
                 Response.Cookies.Add(ck);
 
-                FormsAuthentication.SetAuthCookie(PersonLogin.UserName, true);
-
-                FormsAuthentication.Authenticate(PersonLogin.UserName, PersonLogin.Password);
-
-                bool aut = Request.IsAuthenticated;
-
-                Response.Redirect("PersonList.aspx");
-
-                //FormsAuthentication.RedirectFromLoginPage(PersonLogin.UserName, PersonLogin.RememberMeSet);
+                FormsAuthentication.RedirectFromLoginPage(PersonLogin.UserName, PersonLogin.RememberMeSet);
             }
             else
                 Response.Redirect("Login.aspx", true);
